@@ -8,9 +8,10 @@
 
 <h2>Visited:</h2>
 
-<% @user.places.each do |place| %>
+<% @user.user_places.each do |user_place| %>
     <div>
-        <h5><%= place.name %></h5>
-        <img src="<%= place.picture %>" height="100">
+        <h5><%= user_place.place.name %></h5>
+        <img src="<%= user_place.place.picture %>" height="100">
+        <%= link_to 'Delete', users_remove_place_path(id: user_place.id), method: :delete %>
     </div>
 <% end %>
