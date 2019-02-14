@@ -1,6 +1,13 @@
 <%= form_for @dish do |f| %>
 <div>
     <%= f.text_field :name, placeholder: 'Name' %>
+    <% if @dish.errors.messages[:name] %>
+        <ul>
+        <% @dish.errors.messages[:name].each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+    <% end %>
 </div>
 <div>
     <%= f.text_area :description, placeholder: 'Description' %>

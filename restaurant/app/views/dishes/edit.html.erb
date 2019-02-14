@@ -1,2 +1,7 @@
 <h2>Edit Dish</h2>
+<% if flash[:error] %> 
+    <div class="alert alert-danger">
+        <%= flash[:error] %></h3>
+    </div>
+<% end %>
 <%= render 'form' %>

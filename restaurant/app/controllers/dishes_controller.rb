@@ -22,13 +22,17 @@ class DishesController < ApplicationController
     end
     
     def update
-        dish = Dish.find(params[:id])
-        dish.name = params[:dish][:name]
-        dish.description = params[:dish][:description]
-        dish.picture = params[:dish][:picture]
-        dish.price = params[:dish][:price]
-        dish.save
-        redirect_to dishes_path
+        @dish = Dish.find(params[:id])
+        @dish.name = params[:dish][:name]
+        @dish.description = params[:dish][:description]
+        @dish.picture = params[:dish][:picture]
+        @dish.price = params[:dish][:price]
+        if @dish.save
+            flash[:info] = "Saved successfully"
+            redirect_to dishes_path
+        else
+            render 'edit'
+        end
     end
     
     def delete
