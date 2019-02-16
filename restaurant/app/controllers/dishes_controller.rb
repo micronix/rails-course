@@ -8,12 +8,12 @@ class DishesController < ApplicationController
     end
     
     def create
-        dish = Dish.new
-        dish.name = params[:dish][:name]
-        dish.description = params[:dish][:description]
-        dish.picture = params[:dish][:picture]
-        dish.price = params[:dish][:price]
-        dish.save
+        Dish.create(
+            name: params[:dish][:name],
+            description: params[:dish][:description],
+            picture: params[:dish][:picture],
+            price: params[:dish][:price]
+        )
         redirect_to dishes_path
     end
     
