@@ -18,4 +18,4 @@ Your app should at a minimum incorporate the following:
 - run rubocop on your code and fix all issues
 - write test cases
 - style your app so that it looks awesome
-- make 
+- use extra gems
