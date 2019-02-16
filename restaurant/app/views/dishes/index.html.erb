@@ -1,0 +1,17 @@
+<%= link_to 'New', new_dish_path %>
+
+<% if flash[:info] %>
+    <div class="alert alert-success">
+        <%= flash[:info] %>
+    </div>
+<% end %>
+
+<% @dishes.each do |dish| %>
+    <div class="dish">
+        <%= dish.name %>
+        <p><%= dish.description %></p>
+        <%= image_tag dish.picture, height: 100 %>
+        <%= dish.price %>
+        <%= link_to 'Edit', edit_dish_path(dish) %>
+    </div>
+<% end %>
